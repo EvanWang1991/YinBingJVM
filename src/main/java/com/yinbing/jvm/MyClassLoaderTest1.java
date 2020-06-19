@@ -46,18 +46,17 @@ public class MyClassLoaderTest1 {
                 // First, check if the class has already been loaded
                 Class<?> c = findLoadedClass(name);
 
-                if(name.equals("org.springframework.util.StringUtils")){
-
-                }else{
-                    c = super.loadClass(name, resolve);
-                }
-
 
                 if (c == null) {
                     // If still not found, then invoke findClass in order
                     // to find the class.
                     long t1 = System.nanoTime();
-                    c = findClass(name);
+                    //非自定义的类还是走双亲委派加载
+                    if (name.startsWith("org.springframework.util.StringUtils")){
+                        c = this.getParent().loadClass(name);
+                    }else{
+                        c = findClass(name);
+                    }
 
                     // this is the defining class loader; record the stats
                     sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
