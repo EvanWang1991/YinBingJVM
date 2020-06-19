@@ -72,7 +72,7 @@ public class MyClassLoaderTest1 {
 
     public static void main(String args[]) throws Exception {
         MyClassLoader classLoader = new MyClassLoader("C:/dev");
-        //尝试用自己改写类加载机制去加载自己写的java.lang.String.class
+        //尝试用自己改写类加载机制去加载自己写的org.springframework.util.StringUtils.class
         Class clazz = classLoader.loadClass("org.springframework.util.StringUtils");
         Object obj = clazz.newInstance();
         Method method= clazz.getDeclaredMethod("print", null);
