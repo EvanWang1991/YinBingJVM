@@ -40,3 +40,6 @@ JVM参数大小设置并没有固定标准，需要根据实际项目情况分�
 ![image.png](https://upload-images.jianshu.io/upload_images/23805140-1e22c4464a5c3914.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **总结 就是尽可能让对象都在新生代里分配和回收，尽量别让太多对象频繁进入老年代，避免频繁对老年代进行垃圾回收，同时给系统充足的内存大小，避免新生代频繁的进行垃圾回收。**
+
+
+
